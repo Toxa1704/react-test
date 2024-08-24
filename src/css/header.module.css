@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+.header {
+    padding:20px 0 ;
+    border-bottom: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.btnEditUsers,
+.btnUsers {
+width: 200px;
+height: 48px;
+border: 1px solid #C4C4C4;
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 300;
+font-size: 14px;
+line-height: 20px;
+letter-spacing: 0.200025px;
+color: #000000;
+}
+
+.btnEditUsers:hover,
+.btnUsers:hover {
+border: 1px solid #C4C4C4;
+color: #C4C4C4; 
+    }
