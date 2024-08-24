@@ -10,6 +10,10 @@
 }
 .btnEditUsers,
 .btnUsers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
 width: 200px;
 height: 48px;
 border: 1px solid #C4C4C4;

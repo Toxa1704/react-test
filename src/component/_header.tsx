@@ -5,9 +5,9 @@ export default function Header () {
     return (
         <div className={styles.header}>
             
-        <button className={styles.btnEditUsers}>Edit Users</button>
+        <Link href="/" className={styles.btnEditUsers}>Edit Users</Link>
 
-        <button className={styles.btnUsers}>Users</button>
+        <Link href="/users" className={styles.btnUsers}>Users</Link>
         </div>
     )
 }
