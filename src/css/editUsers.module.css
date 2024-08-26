@@ -123,10 +123,11 @@
 }
 
 .userInfoWrapper {
-    max-width: 1080px;
+    max-width: 1240px;
     align-self: flex-start;
 
     .userInfo {
+        width: 1080px;
         margin-top: 40px;
         display: grid;
         grid-template-columns: auto auto;

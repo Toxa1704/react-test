@@ -1,0 +1,38 @@
+[
+  {
+    "name": "John Doe",
+    "country": "USA",
+    "department": "Engineering",
+    "status": "Active"
+  },
+  {
+    "name": "Jane Smith",
+    "country": "Canada",
+    "department": "Marketing",
+    "status": "Inactive"
+  },
+  {
+    "name": "Ivan Petrov",
+    "country": "Ukraine",
+    "department": "Sales",
+    "status": "Active"
+  },
+  {
+    "name": "Maria Garcia",
+    "country": "Spain",
+    "department": "Human Resources",
+    "status": "Active"
+  },
+  {
+    "name": "Liu Wei",
+    "country": "China",
+    "department": "Finance",
+    "status": "Inactive"
+  },
+  {
+    "name": "Amina Khan",
+    "country": "India",
+    "department": "IT",
+    "status": "Active"
+  }
+]
