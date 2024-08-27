@@ -1,5 +1,5 @@
 'use client'
-import fetchData from "../data";
+import fetchData from "../dataUsers";
 
 export default function test() {
  fetchData()

@@ -2,7 +2,7 @@
 
 async function fetchData() {
     try {
-        const response = await fetch('./data')
+        const response = await fetch("https://github.com/Toxa1704/testdb/blob/main/db")
         if (!response.ok) {
             throw new Error('Дані не отримано')
         }
