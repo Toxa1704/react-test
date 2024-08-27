@@ -1,15 +1,13 @@
+'use client'
+import fetchData from "../data";
 
-import React from "react"
-import fs from 'fs';
-import path from 'path';
-
-
-export default function test(){
-
-  return(
-    <>
-    <div>Hello!!!!!!</div>
- 
-      </>
-    )
+export default function test() {
+ fetchData()
+  return (
+    <div>
+      <h1>Data from JSON file</h1>
+      <ul id="user-list"></ul>
+    </div>
+  );
 }
+
