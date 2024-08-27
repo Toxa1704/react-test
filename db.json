@@ -28,36 +28,6 @@
       "country": "China",
       "department": "Finance",
       "status": "Inactive"
-    },
-    {
-      "full_name": "Anna Müller",
-      "country": "Germany",
-      "department": "Engineering",
-      "status": "Active"
-    },
-    {
-      "full_name": "Yuki Tanaka",
-      "country": "Egypt",
-      "department": "Marketing",
-      "status": "Inactive"
-    },
-    {
-      "full_name": "Carlos Silva",
-      "country": "Egypt",
-      "department": "Sales",
-      "status": "Active"
-    },
-    {
-      "full_name": "Fatima Khan",
-      "country": "India",
-      "department": "HR",
-      "status": "Active"
-    },
-    {
-      "full_name": "Omar Ali",
-      "country": "Egypt",
-      "department": "Finance",
-      "status": "Inactive"
     }
   ]
   
