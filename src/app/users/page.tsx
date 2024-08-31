@@ -1,9 +1,6 @@
 import usersData from "@/component/_usersData";
 import styles from "@/css/usersData.module.css"
-import Image from "next/image";
-
-
-
+import DropDown from "@/component/_menuDropdown";
 
 
 
@@ -11,7 +8,11 @@ const test: React.FC = () => {
   return (
     <div>
       <h1>Users</h1>
-      <div className={styles.usersList}>
+      <p>Please add at least 3 departmetns to be able to proceed next steps.</p>
+      <div>
+        <DropDown />
+      </div>
+      <div >
         <table className={styles.usersList}>
           <tr>
             <th>Full Name</th>
