@@ -1,9 +1,51 @@
 .selected {
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 0px;
-width: 220px;
-height: 48px;
-border: 1px solid #c2c2c2;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+    width: 220px;
+    height: 48px;
+    border: 1px solid #c2c2c2;
+    cursor: pointer;
+    & .paragraph {
+        font-family: 'Rubik';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.200025px;
+        color: #C2C2C2;
+    }
+
+}
+
+.dropdown {
+    position: absolute;
+    border: 1px solid #c2c2c2;
+    opacity: 0;
+    transform: translateY(-10px);
+    visibility: hidden;
+    transition: all 0.3s;
+    & .dropdownForm {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 8px 25px;
+        gap: 12px;
+        width: 220px;
+        height: 40px;
+        background: #FFFFFF;
+        order: 0;
+        align-self: stretch;
+
+    }
+}
+.dropdown.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    color: black;
 }
