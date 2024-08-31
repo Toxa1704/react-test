@@ -1,4 +1,54 @@
-.usersList{
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+
+.userDataWrapper {
+    /* max-width: 1240px; */
+    margin: 80px 100px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 80px 80px;
+    gap: 40px;
+
+    width: 1240px;
+    max-width: 1400px;
+    height: 808px;
+
+    background: #FFFFFF;
+    border: 1px solid #000000;
+
+    & .ueserDataTitle {
+        font-family: 'Karla';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 32px;
+        display: flex;
+        letter-spacing: 6px;
+        color: #000000;
+        text-transform: uppercase;
+    }
+
+    & p {
+        font-family: 'Rubik';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 20px;
+        display: flex;
+        align-self: flex-start;
+        letter-spacing: 0.200025px;
+        color: #1B2438;
+    }
+
+}
+.dropDownMenu {
+    align-self: flex-start;
+}
+
+
+
+.usersList {
     width: 1080px;
- text-align: left;
+    text-align: left;
 }

@@ -6,10 +6,10 @@ import DropDown from "@/component/_menuDropdown";
 
 const test: React.FC = () => {
   return (
-    <div>
-      <h1>Users</h1>
+    <div className={styles.userDataWrapper}>
+      <h1 className={styles.ueserDataTitle}>Users</h1>
       <p>Please add at least 3 departmetns to be able to proceed next steps.</p>
-      <div>
+      <div className={styles.dropDownMenu}>
         <DropDown />
       </div>
       <div >
