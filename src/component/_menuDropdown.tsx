@@ -5,13 +5,26 @@ import styles from "../css/menuDropdown.module.css"
 
 
 
-const Dropdown: React.FC = () => {
+const Dropdown: React.FC <{onFilterChange: (filter: any) => void}>= ({onFilterChange}) => {
         const [isOpen, setOpen] = useState(false);
         const [isSelected, setIsSelected] = useState(false);
-        const [checkedCount, setCheckedCount] = useState(0);
+        const [checkedCount, setCheckedCount] = useState(4);
         const handleClick = () => {setIsSelected(!isSelected)};
+        const [checkedColumns, setCheckedColumns] = useState({
+            fullname: true,
+            department: true,
+            country: true,
+            status: true,
+        });
         const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
             setCheckedCount(prevCount => e.target.checked ? prevCount + 1 : prevCount - 1);
+            const { name, checked } = e.target;
+            const newCheckedColumns = {
+                ...checkedColumns,
+                [name]: checked,
+            };
+            setCheckedColumns(newCheckedColumns);
+            onFilterChange(newCheckedColumns);
         };
 
     return (
@@ -31,19 +44,19 @@ const Dropdown: React.FC = () => {
                         </div>
             <div className={`${styles.dropdown} ${isOpen ? styles.active : ""}`}>
                 <form className={styles.dropdownForm}>
-                    <input type="checkbox" id="fullname" name="fullname" value="full_name" onChange={handleCheckboxChange} />
+                    <input type="checkbox" id="fullname" name="fullname" value="full_name" checked={checkedColumns.fullname} onChange={handleCheckboxChange} />
                     <label htmlFor="fullname">Full Name</label>
                 </form>
                 <form className={styles.dropdownForm}>
-                    <input type="checkbox" id="department" name="department" value="department" onChange={handleCheckboxChange} />
+                    <input type="checkbox" id="department" name="department" value="department" checked={checkedColumns.department} onChange={handleCheckboxChange} />
                     <label htmlFor="department">Department</label>
                 </form>
                 <form className={styles.dropdownForm}>
-                    <input type="checkbox" id="country" name="country" value="country" onChange={handleCheckboxChange} />
+                    <input type="checkbox" id="country" name="country" value="country" checked={checkedColumns.country} onChange={handleCheckboxChange} />
                     <label htmlFor="country">Country</label>
                 </form>
                 <form className={styles.dropdownForm}>
-                    <input type="checkbox" id="status" name="status" value="status" onChange={handleCheckboxChange} />
+                    <input type="checkbox" id="status" name="status" value="status" checked={checkedColumns.status} onChange={handleCheckboxChange} />
                     <label htmlFor="status">Status</label>
                 </form>
             </div>
