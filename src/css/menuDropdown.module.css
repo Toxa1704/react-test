@@ -8,6 +8,7 @@
     height: 48px;
     border: 1px solid #c2c2c2;
     cursor: pointer;
+
     & .paragraph {
         font-family: 'Rubik';
         font-style: normal;
@@ -29,7 +30,9 @@
     transform: translateY(-10px);
     visibility: hidden;
     transition: all 0.3s;
+
     & .dropdownForm {
+        color: #5E626B;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -40,12 +43,23 @@
         background: #FFFFFF;
         order: 0;
         align-self: stretch;
-
     }
 }
+
 .dropdown.active {
     transform: translateY(0);
     opacity: 1;
     visibility: visible;
-    color: black;
+}
+
+.selectedText {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.200025px;
+    color: #000000;
 }

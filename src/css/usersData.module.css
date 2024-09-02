@@ -1,19 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
 
 .userDataWrapper {
-    /* max-width: 1240px; */
     margin: 80px 100px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 60px 80px 80px;
-    gap: 40px;
-
     width: 1240px;
     max-width: 1400px;
     height: 808px;
-
     background: #FFFFFF;
     border: 1px solid #000000;
 
@@ -28,27 +24,54 @@
         color: #000000;
         text-transform: uppercase;
     }
-
-    & p {
+    & .ueserDataText {
         font-family: 'Rubik';
         font-style: normal;
         font-weight: 300;
         font-size: 14px;
         line-height: 20px;
-        display: flex;
         align-self: flex-start;
         letter-spacing: 0.200025px;
         color: #1B2438;
+        margin-top: 40px;
     }
+
 
 }
 .dropDownMenu {
     align-self: flex-start;
+    margin-top: 12px;
 }
-
-
 
 .usersList {
     width: 1080px;
+
     text-align: left;
+    margin-top: 40px;
+    border: 1px solid #E3E8EE;
+    border-collapse: collapse;
+font-family: 'Karla';
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 20px;
+letter-spacing: 0.4px;
+
+color: #000000;
 }
+.usersList th, .usersList td {
+    padding: 20px 32px;
+    border: 1px solid #E3E8EE;
+    border-left: none;
+    border-right: none;
+  }
+  .usersList td  {
+    border: none;
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 300;
+font-size: 14px;
+line-height: 20px;
+letter-spacing: 0.200025px;
+color: #5E626B;
+  }

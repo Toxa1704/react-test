@@ -7,7 +7,7 @@ import React, { useState } from "react";
 
 
 
-const test: React.FC = () => {
+const users: React.FC = () => {
   const [filters, setFilters] = useState({
     fullname: true,
     department: true,
@@ -21,13 +21,13 @@ const test: React.FC = () => {
   return (
     <div className={styles.userDataWrapper}>
       <h1 className={styles.ueserDataTitle}>Users</h1>
-      <p>Please add at least 3 departmetns to be able to proceed next steps.</p>
+      <div className={styles.ueserDataText}>Please add at least 3 departmetns to be able to proceed next steps.</div>
       <div className={styles.dropDownMenu}>
         <DropDown onFilterChange={handleFilterChange} />
       </div>
       <div >
         <table className={styles.usersList}>
-          <thead>
+          <thead className={styles.usersListThead}>
             <tr>
               {filters.fullname && <th>Full Name</th>}
               {filters.department && <th>Department</th>}
@@ -37,7 +37,7 @@ const test: React.FC = () => {
             </tr>
           </thead>
           {usersData.map((user, index) => (
-            <tr key={index}>
+              <tr  key={index}>
               {filters.fullname && <td>{user.full_name}</td>}
               {filters.department && <td>{user.department}</td>}
               {filters.country && <td>{user.country}</td>}
@@ -49,11 +49,12 @@ const test: React.FC = () => {
               </td>
             </tr>
           ))}
+          
         </table>
       </div>
     </div>
   );
 };
 
-export default test;
+export default users;
 
