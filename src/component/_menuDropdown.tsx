@@ -37,7 +37,7 @@ const Dropdown: React.FC<{ onFilterChange: (filter: any) => void }> = ({ onFilte
             </div>
             <div className={`${styles.dropdown} ${isOpen ? styles.active : ""}`}>
                 <form className={styles.dropdownForm}>
-                    <input type="checkbox" id="fullname" name="fullname" value="full_name" checked={checkedColumns.fullname} onChange={handleCheckboxChange} />
+                    <input  type="checkbox" id="fullname" name="fullname" value="full_name" checked={checkedColumns.fullname} onChange={handleCheckboxChange} />
                     <label htmlFor="fullname">Full Name</label>
                 </form>
                 <form className={styles.dropdownForm}>

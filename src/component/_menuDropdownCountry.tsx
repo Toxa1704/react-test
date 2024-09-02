@@ -30,10 +30,11 @@ const MenuDropdownContry: FC = () => {
                 </svg>
             </div>
             <div className={`${styles.listMenu} ${isOpen ? styles.active : ''}`}>
-                <form>
+                <form className={styles.listMenuForm}>
                     {usersData.map((user, index) => (
                         <div key={index}>
                             <input
+                            className={styles.formInput}
                                 type="checkbox"
                                 id={user.country}
                                 name={user.country}
