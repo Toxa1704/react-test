@@ -13,7 +13,7 @@
     background: #FFFFFF;
     border: 1px solid #000000;
 
-    & .ueserDataTitle {
+    & .userDataTitle {
         font-family: 'Karla';
         font-style: normal;
         font-weight: 500;
@@ -24,7 +24,7 @@
         color: #000000;
         text-transform: uppercase;
     }
-    & .ueserDataText {
+    & .userDataText {
         font-family: 'Rubik';
         font-style: normal;
         font-weight: 300;
@@ -39,7 +39,12 @@
 
 }
 .dropDownMenu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px; 
     align-self: flex-start;
+    
     margin-top: 12px;
 }
 

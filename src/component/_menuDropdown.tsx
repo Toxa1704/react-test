@@ -28,7 +28,7 @@ const Dropdown: React.FC<{ onFilterChange: (filter: any) => void }> = ({ onFilte
     };
 
     return (
-        <>
+        <div>
             <div className={styles.selected} onClick={() => { setOpen(!isOpen); handleClick(); }} >
                 <div className={styles.paragraph}>{isSelected ? <span className={styles.selectedText}>{`Selected (${checkedCount})`}</span>: 'Select departments'}</div>
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -53,7 +53,7 @@ const Dropdown: React.FC<{ onFilterChange: (filter: any) => void }> = ({ onFilte
                     <label htmlFor="status">Status</label>
                 </form>
             </div>
-        </>
+        </div>
     );
 };
 

@@ -3,6 +3,7 @@
 import usersData from "@/component/_usersData";
 import styles from "@/css/usersData.module.css"
 import DropDown from "@/component/_menuDropdown";
+import MenuDropdownContry from "@/component/_menuDropdownCountry";
 import React, { useState } from "react";
 
 
@@ -20,12 +21,13 @@ const users: React.FC = () => {
   };
   return (
     <div className={styles.userDataWrapper}>
-      <h1 className={styles.ueserDataTitle}>Users</h1>
-      <div className={styles.ueserDataText}>Please add at least 3 departmetns to be able to proceed next steps.</div>
+      <h1 className={styles.userDataTitle}>Users</h1>
+      <div className={styles.userDataText}>Please add at least 3 departmetns to be able to proceed next steps.</div>
       <div className={styles.dropDownMenu}>
         <DropDown onFilterChange={handleFilterChange} />
+        <MenuDropdownContry />
       </div>
-      <div >
+        <div >
         <table className={styles.usersList}>
           <thead className={styles.usersListThead}>
             <tr>
@@ -37,7 +39,7 @@ const users: React.FC = () => {
             </tr>
           </thead>
           {usersData.map((user, index) => (
-              <tr  key={index}>
+            <tr key={index}>
               {filters.fullname && <td>{user.full_name}</td>}
               {filters.department && <td>{user.department}</td>}
               {filters.country && <td>{user.country}</td>}
@@ -49,9 +51,9 @@ const users: React.FC = () => {
               </td>
             </tr>
           ))}
-          
+
         </table>
-      </div>
+        </div>
     </div>
   );
 };
