@@ -35,6 +35,24 @@ interface User {
       country: "China",
       department: "Finance",
       status: "Inactive"
+    },
+    {
+      full_name: "Leon Tuareg",
+      country: "France",
+      department: "Freelance",
+      status: "Active"
+    },
+    {
+      full_name: "MixerToxa",
+      country: "Ukraine",
+      department: "Freelance",
+      status: "Inactive"
+    },
+    {
+      full_name: "Ivan Petrov",
+      country: "Egypt",
+      department: "Sales",
+      status: "Active"
     }
   ];
   

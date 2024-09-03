@@ -9,6 +9,7 @@ const Dropdown: React.FC<{ onFilterChange: (filter: any) => void }> = ({ onFilte
     const [isOpen, setOpen] = useState(false);
     const [isSelected, setIsSelected] = useState(false);
     const [checkedCount, setCheckedCount] = useState(4);
+    
     const handleClick = () => { setIsSelected(!isSelected) };
     const [checkedColumns, setCheckedColumns] = useState({
         fullname: true,
