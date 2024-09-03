@@ -4,6 +4,7 @@ import usersData from "@/component/_usersData";
 import styles from "@/css/usersData.module.css"
 import DropDown from "@/component/_menuDropdown";
 import MenuDropdownContry from "@/component/_menuDropdownCountry";
+import MenuDropdownStatus from "@/component/_menuDropdownStatus";
 import React, { useState } from "react";
 
 interface Filters {
@@ -12,6 +13,7 @@ interface Filters {
   country: boolean;
   status: boolean;
   selectedCountries: { [key: string]: boolean };
+  selectedStatus: { [key: string]: boolean };
 }
 
 const Users: React.FC = () => {
@@ -21,6 +23,7 @@ const Users: React.FC = () => {
     country: true,
     status: true,
     selectedCountries: {},
+    selectedStatus: {},
   });
 
   const handleFilterChange = (newFilters: Partial<Filters>) => {
@@ -32,10 +35,16 @@ const Users: React.FC = () => {
 
   const filteredUsers = usersData.filter(user => {
     const selectedCountries = Object.keys(filters.selectedCountries).filter(country => filters.selectedCountries[country]);
-    if (selectedCountries.length === 0) {
+    const selectedStatus = Object.keys(filters.selectedStatus).filter(status => filters.selectedStatus[status]);
+
+    if (selectedCountries.length === 0 && selectedStatus.length === 0) {
       return true;
     }
-    return selectedCountries.includes(user.country);
+
+    const countryMatch = selectedCountries.length === 0 || selectedCountries.includes(user.country);
+    const statusMatch = selectedStatus.length === 0 || selectedStatus.includes(user.status);
+
+    return countryMatch && statusMatch;
   });
 
   return (
@@ -45,6 +54,7 @@ const Users: React.FC = () => {
       <div className={styles.dropDownMenu}>
         <DropDown onFilterChange={handleFilterChange} />
         <MenuDropdownContry onFilterChange={selectedCountries => handleFilterChange({ selectedCountries })} />
+        <MenuDropdownStatus onFilterChange={selectedStatus => handleFilterChange({ selectedStatus })} />
       </div>
       <div>
         <table className={styles.usersList}>
