@@ -4,8 +4,24 @@ import React, { FC, useState } from "react";
 import usersData from "@/component/_usersData";
 import styles from "@/css/menuDropdownCountry.module.css";
 
-const MenuDropdownContry: FC = () => {
+interface CheckedRows {
+    [key: string]: boolean;
+}
+
+const MenuDropdownContry: FC<{ onFilterChange: (filter: CheckedRows) => void }> = ({ onFilterChange }) => {
     const [isOpen, setIsOpen] = useState(false);
+    const [checkedRows, setCheckedRows] = useState<CheckedRows>({});
+    const uniqueCountries = Array.from(new Set(usersData.map(user => user.country)));
+
+    const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, checked } = e.target;
+        const newCheckedRows = {
+            ...checkedRows,
+            [name]: checked,
+        };
+        setCheckedRows(newCheckedRows);
+        onFilterChange(newCheckedRows);
+    };
 
     return (
         <div>
@@ -31,16 +47,18 @@ const MenuDropdownContry: FC = () => {
             </div>
             <div className={`${styles.listMenu} ${isOpen ? styles.active : ''}`}>
                 <form className={styles.listMenuForm}>
-                    {usersData.map((user, index) => (
+                    {uniqueCountries.map((country, index) => (
                         <div key={index}>
                             <input
-                            className={styles.formInput}
+                                className={styles.formInput}
                                 type="checkbox"
-                                id={user.country}
-                                name={user.country}
-                                value={user.country}
+                                id={country}
+                                name={country}
+                                value={country}
+                                checked={checkedRows[country] || false}
+                                onChange={handleCheckboxChange}
                             />
-                            <label htmlFor={user.country}>{user.country}</label>
+                            <label htmlFor={country}>{country}</label>
                         </div>
                     ))}
                 </form>
