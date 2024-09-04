@@ -26,11 +26,26 @@ const Users: React.FC = () => {
     selectedStatus: {},
   });
 
+  const [reset, setReset] = useState(false);
+
   const handleFilterChange = (newFilters: Partial<Filters>) => {
     setFilters(prevFilters => ({
       ...prevFilters,
       ...newFilters,
     }));
+  };
+
+  const resetFilters = () => {
+    setFilters({
+      fullname: true,
+      department: true,
+      country: true,
+      status: true,
+      selectedCountries: {},
+      selectedStatus: {},
+    });
+    setReset(true);
+    setTimeout(() => setReset(false), 0); // Скидання стану reset після оновлення
   };
 
   const filteredUsers = usersData.filter(user => {
@@ -53,8 +68,11 @@ const Users: React.FC = () => {
       <div className={styles.userDataText}>Please add at least 3 departments to be able to proceed next steps.</div>
       <div className={styles.dropDownMenu}>
         <DropDown onFilterChange={handleFilterChange} />
-        <MenuDropdownContry onFilterChange={selectedCountries => handleFilterChange({ selectedCountries })} />
-        <MenuDropdownStatus onFilterChange={selectedStatus => handleFilterChange({ selectedStatus })} />
+        <MenuDropdownContry onFilterChange={selectedCountries => handleFilterChange({ selectedCountries })} reset={reset} />
+        <MenuDropdownStatus onFilterChange={selectedStatus => handleFilterChange({ selectedStatus })} reset={reset} />
+        <a href="#" className={styles.basket} onClick={resetFilters}>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5E626B"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg>
+        </a>
       </div>
       <div>
         <table className={styles.usersList}>

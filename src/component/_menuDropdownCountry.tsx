@@ -1,6 +1,6 @@
 'use client'
 
-import React, { FC, useState } from "react";
+import React, { FC, useState, useEffect } from "react";
 import usersData from "@/component/_usersData";
 import styles from "@/css/menuDropdownCountry.module.css";
 
@@ -8,7 +8,7 @@ interface CheckedRows {
     [key: string]: boolean;
 }
 
-const MenuDropdownContry: FC<{ onFilterChange: (filter: CheckedRows) => void }> = ({ onFilterChange }) => {
+const MenuDropdownContry: FC<{ onFilterChange: (filter: CheckedRows) => void, reset: boolean }> = ({ onFilterChange, reset }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [checkedRows, setCheckedRows] = useState<CheckedRows>({});
     const uniqueCountries = Array.from(new Set(usersData.map(user => user.country)));
@@ -22,6 +22,12 @@ const MenuDropdownContry: FC<{ onFilterChange: (filter: CheckedRows) => void }> 
         setCheckedRows(newCheckedRows);
         onFilterChange(newCheckedRows);
     };
+
+    useEffect(() => {
+        if (reset) {
+            setCheckedRows({});
+        }
+    }, [reset]);
 
     return (
         <div>

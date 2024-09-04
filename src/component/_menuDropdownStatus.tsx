@@ -8,7 +8,7 @@ interface CheckedRows {
     [key: string]: boolean;
 }
 
-const MenuDropdownStatus: FC<{ onFilterChange: (filter: CheckedRows) => void }> = ({ onFilterChange }) => {
+const MenuDropdownStatus: FC<{ onFilterChange: (filter: CheckedRows) => void, reset: boolean }> = ({ onFilterChange, reset }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [checkedRows, setCheckedRows] = useState<CheckedRows>({});
     const uniqueStatus = Array.from(new Set(usersData.map(user => user.status)));
@@ -22,6 +22,12 @@ const MenuDropdownStatus: FC<{ onFilterChange: (filter: CheckedRows) => void }> 
         setCheckedRows(newCheckedRows);
         onFilterChange(newCheckedRows);
     };
+
+    React.useEffect(() => {
+        if (reset) {
+            setCheckedRows({});
+        }
+      }, [reset]);
 
     return (
         <div>

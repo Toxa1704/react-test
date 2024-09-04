@@ -80,3 +80,15 @@ line-height: 20px;
 letter-spacing: 0.200025px;
 color: #5E626B;
   }
+
+  .basket {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 12px;
+gap: 10px;
+width: 48px;
+height: 48px;
+border: 1px solid #C4C4C4;
+  }
