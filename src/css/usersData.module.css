@@ -24,6 +24,7 @@
         color: #000000;
         text-transform: uppercase;
     }
+
     & .userDataText {
         font-family: 'Rubik';
         font-style: normal;
@@ -38,13 +39,13 @@
 
 
 }
+
 .dropDownMenu {
+    width: 1080px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 12px; 
-    align-self: flex-start;
-    
+    justify-content: flex-start;
+    gap: 12px;
     margin-top: 12px;
 }
 
@@ -55,40 +56,75 @@
     margin-top: 40px;
     border: 1px solid #E3E8EE;
     border-collapse: collapse;
-font-family: 'Karla';
-font-style: normal;
-font-weight: 700;
-font-size: 14px;
-line-height: 20px;
-letter-spacing: 0.4px;
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.4px;
 
-color: #000000;
+    color: #000000;
 }
-.usersList th, .usersList td {
+
+.usersList th,
+.usersList td {
     padding: 20px 32px;
     border: 1px solid #E3E8EE;
     border-left: none;
     border-right: none;
-  }
-  .usersList td  {
+}
+
+.usersList td {
     border: none;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.200025px;
+    color: #5E626B;
+}
+
+.basket {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    gap: 10px;
+    width: 48px;
+    height: 48px;
+    border: 1px solid #C4C4C4;
+    transition: all 0.3s;
+
+}
+
+.popUpAddUser {
+    background: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 48px;
+    border: 1px solid #C4C4C4;
+    margin-left: auto;
+    cursor: pointer;
+    transition: all 0.3s;
 font-family: 'Rubik';
 font-style: normal;
 font-weight: 300;
 font-size: 14px;
 line-height: 20px;
 letter-spacing: 0.200025px;
-color: #5E626B;
-  }
 
-  .basket {
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-padding: 12px;
-gap: 10px;
-width: 48px;
-height: 48px;
-border: 1px solid #C4C4C4;
-  }
+color: #C4C4C4;
+}
+
+.popUpAddUser:hover  {
+    background: #C4C4C4;
+    color: #000000;
+}
+.basket:hover{
+    background: #C4C4C4;
+    color: #000000; 
+}
