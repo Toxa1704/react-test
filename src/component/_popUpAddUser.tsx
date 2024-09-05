@@ -1,10 +1,8 @@
 "use client";
 
-import usersData from "./_usersData";
-import dataCountries from "./_dataCountries";
-import MenuDropdownDepartment from "@/component/_addUserDepartment"
-import MenuDropdownContry from "@/component/_addUserCountry";
 import styles from "@/css/popUpAddUser.module.css";
+import MenuDropdownDepartment from "@/component/_addUserDepartment"
+import MenuDropdownStatus from "@/component/_addUserStatus";
 import MenuDropdownCountry from "@/component/_addUserCountry";
 
 const PopUpAddUser = () => {
@@ -27,11 +25,12 @@ const PopUpAddUser = () => {
                             <div className={styles.inputFormTitle}>Country</div>
                             <MenuDropdownCountry />
                         </div>
-
                         <div className={styles.inputForm}>
-                            <label>Status</label>
-                            <input className={styles.formInput} />
+                            <div className={styles.inputFormTitle}>Status</div>
+                            <MenuDropdownStatus />
                         </div>
+
+
                     </div>
                     <div className={styles.btnForm}>
                         <input type="reset" className={`${styles.popUpAddUser} ${styles.cansel}`} value={"Cancel"} />
