@@ -42,7 +42,7 @@ const MenuDropdownDepartment = () => {
                                 className={styles.formInput}
                                 type="radio"
                                 id={departments}
-                                name={departments}
+                                name="department"
                                 value={departments}
 
                             />

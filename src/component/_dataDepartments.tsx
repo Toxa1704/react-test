@@ -3,8 +3,8 @@ interface Department {
   }
   
   const dataDepartments: Department[] = [
-    { department: "Departamento" },
-    { department: "Département" },
+    { department: "Departament" },
+    { department: "Freelance" },
     { department: "Wilaya" },
     { department: "Province" },
     { department: "Region" },
