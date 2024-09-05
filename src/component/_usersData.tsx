@@ -1,10 +1,12 @@
-interface User {
+
+
+  interface User {
     full_name: string;
     country: string;
     department: string;
     status: string;
   }
-  
+
   const usersData: User[] = [
     {
       full_name: "John Doe",

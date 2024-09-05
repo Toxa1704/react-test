@@ -99,6 +99,12 @@
 
 }
 
+
+.basket:hover{
+    background: #C4C4C4;
+    color: #000000; 
+}
+
 .popUpAddUser {
     background: #FFFFFF;
     display: flex;
@@ -110,21 +116,17 @@
     margin-left: auto;
     cursor: pointer;
     transition: all 0.3s;
-font-family: 'Rubik';
-font-style: normal;
-font-weight: 300;
-font-size: 14px;
-line-height: 20px;
-letter-spacing: 0.200025px;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.200025px;
 
-color: #C4C4C4;
+    color: #C4C4C4;
 }
 
-.popUpAddUser:hover  {
+.popUpAddUser:hover {
     background: #C4C4C4;
     color: #000000;
-}
-.basket:hover{
-    background: #C4C4C4;
-    color: #000000; 
 }
