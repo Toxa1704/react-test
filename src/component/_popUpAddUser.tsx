@@ -3,7 +3,9 @@
 import usersData from "./_usersData";
 import dataCountries from "./_dataCountries";
 import MenuDropdownDepartment from "@/component/_addUserDepartment"
+import MenuDropdownContry from "@/component/_addUserCountry";
 import styles from "@/css/popUpAddUser.module.css";
+import MenuDropdownCountry from "@/component/_addUserCountry";
 
 const PopUpAddUser = () => {
 
@@ -20,12 +22,12 @@ const PopUpAddUser = () => {
                         <div className={styles.inputForm}>
                             <div className={styles.inputFormTitle}>Department</div>
                             <MenuDropdownDepartment />
-                            </div>
-                        
-                        <div className={styles.inputForm}>
-                            <label>Country</label>
-                            <input className={styles.formInput} />
                         </div>
+                        <div className={styles.inputForm}>
+                            <div className={styles.inputFormTitle}>Country</div>
+                            <MenuDropdownCountry />
+                        </div>
+
                         <div className={styles.inputForm}>
                             <label>Status</label>
                             <input className={styles.formInput} />
