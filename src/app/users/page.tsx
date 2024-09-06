@@ -46,13 +46,13 @@ const Users: React.FC = () => {
       selectedStatus: {},
     });
     setReset(true);
-    setTimeout(() => setReset(false), 0); // Скидання стану reset після оновлення
+    setTimeout(() => setReset(false), 0); 
   };
 
   const filteredUsers = usersData.filter(user => {
     const selectedCountries = Object.keys(filters.selectedCountries).filter(country => filters.selectedCountries[country]);
     const selectedStatus = Object.keys(filters.selectedStatus).filter(status => filters.selectedStatus[status]);
-
+    
     if (selectedCountries.length === 0 && selectedStatus.length === 0) {
       return true;
     }

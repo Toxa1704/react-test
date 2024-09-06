@@ -1,16 +1,19 @@
 'use client';
 
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import dataStatus from "@/component/_dataStatus";
 import styles from "@/css/addUserStatus.module.css";
 
-
-
 const MenuDropdownStatus = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [selectedStatus, setSelectedStatus] = useState("Select status");
 
-    const countries = Array.from(new Set(dataStatus.map(user => user.status)));
+    const statuses = Array.from(new Set(dataStatus.map(user => user.status)));
 
+    const handleStatusChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
+        setSelectedStatus(event.target.value);
+        setIsOpen(false);
+    };
 
     return (
         <div>
@@ -20,7 +23,10 @@ const MenuDropdownStatus = () => {
                     setIsOpen(!isOpen);
                 }}
             >
-                <div className={styles.dropDownStatusTitle}>Select status</div>
+                <div className={`${styles.dropDownStatusTitle} ${ selectedStatus !== "Select status" ? styles.activeStatus : ''}`}>
+                    {selectedStatus}
+                </div>
+
                 <svg
                     width="32"
                     height="32"
@@ -36,7 +42,7 @@ const MenuDropdownStatus = () => {
             </div>
             <div className={`${styles.listMenu} ${isOpen ? styles.active : ''}`}>
                 <form className={styles.listMenuForm}>
-                    {countries.map((status, index) => (
+                    {statuses.map((status, index) => (
                         <div key={index}>
                             <input
                                 className={styles.formInput}
@@ -44,7 +50,7 @@ const MenuDropdownStatus = () => {
                                 id={status}
                                 name="status"
                                 value={status}
-
+                                onChange={handleStatusChange}
                             />
                             <label htmlFor={status}>{status}</label>
                         </div>

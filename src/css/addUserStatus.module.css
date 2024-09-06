@@ -21,6 +21,9 @@
     letter-spacing: 0.200025px;
     color: #C2C2C2;
 }
+.activeStatus {
+    color: #5E626B;
+}
 
 .listMenu {
     max-height: 200px; 

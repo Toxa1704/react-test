@@ -8,9 +8,13 @@ import styles from "@/css/addUserDepartment.module.css";
 
 const MenuDropdownDepartment = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [selectedDepartment, setSelactedDepartment] = useState("Select department")
 
     const departments = Array.from(new Set(dataDepartments.map(user => user.department)));
-
+    const handleDepartmentChange = (event: {target:{value: React.SetStateAction<string>;};}) => {
+        setSelactedDepartment(event.target.value);
+        setIsOpen(false);
+    }
 
     return (
         <div>
@@ -20,7 +24,7 @@ const MenuDropdownDepartment = () => {
                     setIsOpen(!isOpen);
                 }}
             >
-                <div className={styles.dropDownDepartmentTitle}>Select department</div>
+                <div className={`${styles.dropDownDepartmentTitle} ${selectedDepartment !== "Select department" ? styles.activeDepartment : "" }`}>{selectedDepartment}</div>
                 <svg
                     width="32"
                     height="32"
@@ -44,7 +48,7 @@ const MenuDropdownDepartment = () => {
                                 id={departments}
                                 name="department"
                                 value={departments}
-
+                                onChange={handleDepartmentChange}
                             />
                             <label htmlFor={departments}>{departments}</label>
                         </div>

@@ -8,9 +8,13 @@ import styles from "@/css/addUserCountry.module.css";
 
 const MenuDropdownCountry = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [selectedCoutry, setSelectedCountry] = useState("Select country");
 
     const countries = Array.from(new Set(dataCountries.map(user => user.name)));
-
+    const handleCountryChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
+        setSelectedCountry(event.target.value);
+        setIsOpen(false);
+    };
 
     return (
         <div>
@@ -20,7 +24,7 @@ const MenuDropdownCountry = () => {
                     setIsOpen(!isOpen);
                 }}
             >
-                <div className={styles.dropDownCountryTitle}>Select country</div>
+                <div className={`${styles.dropDownCountryTitle} ${selectedCoutry !=="Select country" ? styles.activeCountry : ""}`}>{selectedCoutry}</div>
                 <svg
                     width="32"
                     height="32"
@@ -44,7 +48,7 @@ const MenuDropdownCountry = () => {
                                 id={country}
                                 name="country"
                                 value={country}
-
+                                onChange={handleCountryChange}
                             />
                             <label htmlFor={country}>{country}</label>
                         </div>
