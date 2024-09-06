@@ -1,19 +1,29 @@
 'use client';
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import dataStatus from "@/component/_dataStatus";
 import styles from "@/css/addUserStatus.module.css";
+interface MenuDropdownStatusProps {
+    selectedStatus: string;
+    setSelectedStatus: (status: string) => void;
+    onCancel: () => void;
+}
 
-const MenuDropdownStatus = () => {
+const MenuDropdownStatus: React.FC<MenuDropdownStatusProps> = ({ selectedStatus, setSelectedStatus, onCancel }) => {
     const [isOpen, setIsOpen] = useState(false);
-    const [selectedStatus, setSelectedStatus] = useState("Select status");
 
     const statuses = Array.from(new Set(dataStatus.map(user => user.status)));
 
-    const handleStatusChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
+    const handleStatusChange = (event: { target: { value: string; }; }) => {
         setSelectedStatus(event.target.value);
         setIsOpen(false);
     };
+
+    useEffect(() => {
+        if (selectedStatus === "Select status") {
+            setIsOpen(false);
+        }
+    }, [selectedStatus]);
 
     return (
         <div>
@@ -23,7 +33,7 @@ const MenuDropdownStatus = () => {
                     setIsOpen(!isOpen);
                 }}
             >
-                <div className={`${styles.dropDownStatusTitle} ${ selectedStatus !== "Select status" ? styles.activeStatus : ''}`}>
+                <div className={`${styles.dropDownStatusTitle} ${selectedStatus !== "Select status" ? styles.activeStatus : ''}`}>
                     {selectedStatus}
                 </div>
 
@@ -51,6 +61,7 @@ const MenuDropdownStatus = () => {
                                 name="status"
                                 value={status}
                                 onChange={handleStatusChange}
+                                checked={selectedStatus === status}
                             />
                             <label htmlFor={status}>{status}</label>
                         </div>

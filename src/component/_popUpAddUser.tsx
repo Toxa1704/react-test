@@ -1,11 +1,18 @@
 "use client";
 
+import { useState } from "react";
 import styles from "@/css/popUpAddUser.module.css";
-import MenuDropdownDepartment from "@/component/_addUserDepartment"
+import MenuDropdownDepartment from "@/component/_addUserDepartment";
 import MenuDropdownStatus from "@/component/_addUserStatus";
 import MenuDropdownCountry from "@/component/_addUserCountry";
 
 const PopUpAddUser = () => {
+    const [selectedStatus, setSelectedStatus] = useState("Select status");
+
+    const handleCancel = () => {
+        setSelectedStatus("Select status");
+        // Додайте інші дії, які потрібно виконати при натисканні на "Cancel"
+    };
 
     return (
         <div className={styles.popUpWrapper}>
@@ -27,13 +34,11 @@ const PopUpAddUser = () => {
                         </div>
                         <div className={styles.inputForm}>
                             <div className={styles.inputFormTitle}>Status</div>
-                            <MenuDropdownStatus />
+                            <MenuDropdownStatus selectedStatus={selectedStatus} setSelectedStatus={setSelectedStatus} onCancel={handleCancel} />
                         </div>
-
-
                     </div>
                     <div className={styles.btnForm}>
-                        <input type="reset" className={`${styles.popUpAddUser} ${styles.cansel}`} value={"Cancel"} />
+                        <input type="reset" className={`${styles.popUpAddUser} ${styles.cansel}`} value={"Cancel"} onClick={handleCancel} />
                         <input type="submit" className={`${styles.popUpAddUser} ${styles.addUser}`} value={"Add User"} />
                     </div>
                 </form>
