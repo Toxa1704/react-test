@@ -8,9 +8,11 @@ import MenuDropdownCountry from "@/component/_addUserCountry";
 
 const PopUpAddUser = () => {
     const [selectedStatus, setSelectedStatus] = useState("Select status");
+    const [selectedDepartment, setSelactedDepartment] = useState("Select department");
 
     const handleCancel = () => {
         setSelectedStatus("Select status");
+        setSelactedDepartment("Select department");
         // Додайте інші дії, які потрібно виконати при натисканні на "Cancel"
     };
 
@@ -26,7 +28,7 @@ const PopUpAddUser = () => {
                         </div>
                         <div className={styles.inputForm}>
                             <div className={styles.inputFormTitle}>Department</div>
-                            <MenuDropdownDepartment />
+                            <MenuDropdownDepartment selectedDepartment={selectedDepartment} setSelactedDepartment={setSelactedDepartment} onCancel={handleCancel}/>
                         </div>
                         <div className={styles.inputForm}>
                             <div className={styles.inputFormTitle}>Country</div>

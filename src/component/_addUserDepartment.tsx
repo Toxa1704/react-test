@@ -4,17 +4,26 @@ import React, { FC, useState, useEffect } from "react";
 import dataDepartments from "@/component/_dataDepartments"
 import styles from "@/css/addUserDepartment.module.css";
 
+interface MenuDropdownDepartmentProps {
+    selectedDepartment: string;
+    setSelactedDepartment: (departments: string) => void;
+    onCancel:() => void
+}
 
 
-const MenuDropdownDepartment = () => {
+const MenuDropdownDepartment: React.FC<MenuDropdownDepartmentProps>  = ({selectedDepartment, setSelactedDepartment, onCancel }) => {
     const [isOpen, setIsOpen] = useState(false);
-    const [selectedDepartment, setSelactedDepartment] = useState("Select department")
 
     const departments = Array.from(new Set(dataDepartments.map(user => user.department)));
-    const handleDepartmentChange = (event: {target:{value: React.SetStateAction<string>;};}) => {
+    const handleDepartmentChange = (event: { target: { value: string; }; }) => {
         setSelactedDepartment(event.target.value);
         setIsOpen(false);
     }
+
+    useEffect (() => {
+        if(selectedDepartment === "Select department")
+            setIsOpen(false);
+    }, [selectedDepartment])
 
     return (
         <div>
@@ -49,6 +58,7 @@ const MenuDropdownDepartment = () => {
                                 name="department"
                                 value={departments}
                                 onChange={handleDepartmentChange}
+                                checked = {selectedDepartment === departments}
                             />
                             <label htmlFor={departments}>{departments}</label>
                         </div>
