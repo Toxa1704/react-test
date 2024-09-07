@@ -4,14 +4,19 @@ import React, { FC, useState, useEffect } from "react";
 import dataCountries from "@/component/_dataCountries"
 import styles from "@/css/addUserCountry.module.css";
 
+interface MenuDropdownCountryProps {
+    selectedCountry: string;
+    setSelectedCountry: (departments: string) => void;
+    onCancel:() => void
+}
 
 
-const MenuDropdownCountry = () => {
+const MenuDropdownCountry: React.FC<MenuDropdownCountryProps> = ({selectedCountry, setSelectedCountry, onCancel}) => {
     const [isOpen, setIsOpen] = useState(false);
-    const [selectedCoutry, setSelectedCountry] = useState("Select country");
+
 
     const countries = Array.from(new Set(dataCountries.map(user => user.name)));
-    const handleCountryChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
+    const handleCountryChange = (event: { target: { value: string; }; }) => {
         setSelectedCountry(event.target.value);
         setIsOpen(false);
     };
@@ -24,7 +29,7 @@ const MenuDropdownCountry = () => {
                     setIsOpen(!isOpen);
                 }}
             >
-                <div className={`${styles.dropDownCountryTitle} ${selectedCoutry !=="Select country" ? styles.activeCountry : ""}`}>{selectedCoutry}</div>
+                <div className={`${styles.dropDownCountryTitle} ${selectedCountry !=="Select country" ? styles.activeCountry : ""}`}>{selectedCountry}</div>
                 <svg
                     width="32"
                     height="32"
@@ -49,6 +54,7 @@ const MenuDropdownCountry = () => {
                                 name="country"
                                 value={country}
                                 onChange={handleCountryChange}
+                                checked = {selectedCountry === country}
                             />
                             <label htmlFor={country}>{country}</label>
                         </div>
