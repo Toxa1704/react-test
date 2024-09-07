@@ -6,26 +6,41 @@ import MenuDropdownDepartment from "@/component/_addUserDepartment";
 import MenuDropdownStatus from "@/component/_addUserStatus";
 import MenuDropdownCountry from "@/component/_addUserCountry";
 
+
+
+
 const PopUpAddUser = () => {
     const [selectedStatus, setSelectedStatus] = useState("Select status");
     const [selectedDepartment, setSelactedDepartment] = useState("Select department");
     const [selectedCountry, setSelectedCountry] = useState("Select country")
+    const [inputFullName, setInputFullName] = useState("Enter your full name (A-z)")
 
     const handleCancel = () => {
         setSelectedStatus("Select status");
         setSelactedDepartment("Select department");
         setSelectedCountry("Select country")
+        setInputFullName("Enter your full name (A-z)")
+    };
+    const handleReset = (event: { preventDefault: () => void; }) => {
+        event.preventDefault();
+        handleCancel();
     };
 
     return (
         <div className={styles.popUpWrapper}>
             <div className={styles.addUserTitle}>Add User</div>
             <div className={styles.addUserForm}>
-                <form>
+                <form onReset={handleReset}>
                     <div className={styles.formWrapper}>
                         <div className={styles.inputForm}>
                             <label htmlFor="fullName">Full Name</label>
-                            <input type="text" id="fullName" className={styles.formInput} />
+                            <input
+                                type="text"
+                                id="fullName"
+                                className={styles.formInput}
+                                placeholder={inputFullName}
+                                value={inputFullName}
+                                onChange={(e) => setInputFullName(e.target.value)}/>
                         </div>
                         <div className={styles.inputForm}>
                             <div className={styles.inputFormTitle}>Department</div>
