@@ -1,36 +1,63 @@
 "use client";
 
+import usersData from "./_usersData";
 import { useState } from "react";
 import styles from "@/css/popUpAddUser.module.css";
 import MenuDropdownDepartment from "@/component/_addUserDepartment";
 import MenuDropdownStatus from "@/component/_addUserStatus";
 import MenuDropdownCountry from "@/component/_addUserCountry";
 
+interface User {
+  full_name: string;
+  country: string;
+  department: string;
+  status: string;
+}
 
-
+let user: User[] = [];
 
 const PopUpAddUser = () => {
     const [selectedStatus, setSelectedStatus] = useState("Select status");
     const [selectedDepartment, setSelactedDepartment] = useState("Select department");
-    const [selectedCountry, setSelectedCountry] = useState("Select country")
-    const [inputFullName, setInputFullName] = useState("Enter your full name (A-z)")
+    const [selectedCountry, setSelectedCountry] = useState("Select country");
+    const [inputFullName, setInputFullName] = useState("");
+    const [users, setUsers] = useState(usersData);
+    const [isOpen, setOpen] = useState(false);
+
 
     const handleCancel = () => {
         setSelectedStatus("Select status");
         setSelactedDepartment("Select department");
-        setSelectedCountry("Select country")
-        setInputFullName("Enter your full name (A-z)")
+        setSelectedCountry("Select country");
+        setInputFullName("");
     };
+
     const handleReset = (event: { preventDefault: () => void; }) => {
         event.preventDefault();
         handleCancel();
     };
 
+    const handleSubmit = (event: { preventDefault: () => void; }) => {
+        event.preventDefault();
+        const userData: User = {
+            full_name: inputFullName,
+            department: selectedDepartment,
+            country: selectedCountry,
+            status: selectedStatus,
+        };
+        setUsers([...users, userData]);
+        user = [...users, userData];
+        handleCancel();
+        console.log(user, userData);
+
+    };
+
     return (
+        
         <div className={styles.popUpWrapper}>
             <div className={styles.addUserTitle}>Add User</div>
             <div className={styles.addUserForm}>
-                <form onReset={handleReset}>
+                <form onReset={handleReset} onSubmit={handleSubmit}>
                     <div className={styles.formWrapper}>
                         <div className={styles.inputForm}>
                             <label htmlFor="fullName">Full Name</label>
@@ -38,9 +65,10 @@ const PopUpAddUser = () => {
                                 type="text"
                                 id="fullName"
                                 className={styles.formInput}
-                                placeholder={inputFullName}
+                                placeholder="Enter your full name (A-z)"
                                 value={inputFullName}
-                                onChange={(e) => setInputFullName(e.target.value)}/>
+                                onChange={(e) => setInputFullName(e.target.value)}
+                            />
                         </div>
                         <div className={styles.inputForm}>
                             <div className={styles.inputFormTitle}>Department</div>
@@ -56,8 +84,9 @@ const PopUpAddUser = () => {
                         </div>
                     </div>
                     <div className={styles.btnForm}>
-                        <input type="reset" className={`${styles.popUpAddUser} ${styles.cansel}`} value={"Cancel"} onClick={handleCancel} />
-                        <input type="submit" className={`${styles.popUpAddUser} ${styles.addUser}`} value={"Add User"} />
+                        <input type="reset" className={`${styles.popUpAddUser} ${styles.cansel}`} value="Cancel" onClick={handleCancel} />
+                        <input type="submit" className={`${styles.popUpAddUser} ${styles.addUser}`} value="Add User" onClick={handleSubmit} />
+                        
                     </div>
                 </form>
             </div>
@@ -66,3 +95,4 @@ const PopUpAddUser = () => {
 };
 
 export default PopUpAddUser;
+export { user };

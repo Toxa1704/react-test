@@ -21,6 +21,9 @@ const MenuDropdownCountry: React.FC<MenuDropdownCountryProps> = ({selectedCountr
         setIsOpen(false);
     };
 
+
+    
+
     return (
         <div>
             <div
@@ -55,6 +58,7 @@ const MenuDropdownCountry: React.FC<MenuDropdownCountryProps> = ({selectedCountr
                                 value={country}
                                 onChange={handleCountryChange}
                                 checked = {selectedCountry === country}
+                                
                             />
                             <label htmlFor={country}>{country}</label>
                         </div>

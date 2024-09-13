@@ -39,6 +39,11 @@
 
 
 }
+.userDataWrapper.activeted {
+    background-color:rgba(200, 200, 200, 0.4);
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
+}
 
 .dropDownMenu {
     width: 1080px;
@@ -129,4 +134,22 @@
 .popUpAddUser:hover {
     background: #C4C4C4;
     color: #000000;
+}
+.popWrapper {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+}
+
+.popWrapper.active {
+    z-index: 2;
+    margin: auto;
+    /* position: absolute; */
+    /* width: 100vw;
+    height: 200vh; */
+    /* top: 0;
+    left: 0; */
+    opacity: 1;
+    visibility: visible;
+    background: rgb(0, 0, 0, 0.4);
 }

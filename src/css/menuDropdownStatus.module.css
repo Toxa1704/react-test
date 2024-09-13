@@ -22,14 +22,6 @@
     color: #C2C2C2;
 }
 
-.listMenu {
-    position: absolute;
-    border: 1px solid #c2c2c2;
-    opacity: 0;
-    transform: translateY(-10px);
-    visibility: hidden;
-    transition: all 0.3s;
-}
 
 .listMenuForm {
     color: #5E626B;
@@ -45,6 +37,15 @@
     & .formInput{
         margin-right: 10px;
     }
+}
+
+.listMenu {
+    position: absolute;
+    border: 1px solid #c2c2c2;
+    opacity: 0;
+    transform: translateY(-10px);
+    visibility: hidden;
+    transition: all 0.3s;
 }
 
 .listMenu.active {
