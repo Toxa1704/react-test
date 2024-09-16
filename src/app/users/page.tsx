@@ -1,6 +1,7 @@
 'use client'
 
 import usersData from "@/component/_usersData";
+import {addUser} from "@/component/_popUpAddUser"
 import styles from "@/css/usersData.module.css"
 import DropDown from "@/component/_menuDropdown";
 import MenuDropdownContry from "@/component/_menuDropdownCountry";
@@ -18,7 +19,19 @@ interface Filters {
   selectedStatus: { [key: string]: boolean };
 }
 
+interface User {
+  full_name: string;
+  country: string;
+  department: string;
+  status: string;
+}
+
+
+
+
 const Users: React.FC = () => {
+  console.log(usersData);
+  
   const [filters, setFilters] = useState<Filters>({
     fullname: true,
     department: true,
@@ -50,6 +63,27 @@ const Users: React.FC = () => {
     setReset(true);
     setTimeout(() => setReset(false), 0); 
   };
+  
+  function updateUsersData(usersData: User[], addUser: User[]): User[] {
+    addUser.forEach(newUser => {
+      const index = usersData.findIndex(u => u.full_name === newUser.full_name && u.country === newUser.country && u.department === newUser.department);
+      
+      if (index !== -1) {
+        if (JSON.stringify(usersData[index]) !== JSON.stringify(newUser)) {
+          usersData[index] = newUser;
+        }
+      } else {
+        usersData.push(newUser);
+      }
+    });
+    
+    return usersData;
+  }
+  
+  console.log(addUser);
+  let addUserData = JSON.stringify(updateUsersData(usersData, addUser));
+      console.log(addUserData);
+
 
   const filteredUsers = usersData.filter(user => {
     const selectedCountries = Object.keys(filters.selectedCountries).filter(country => filters.selectedCountries[country]);

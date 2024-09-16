@@ -14,7 +14,9 @@ interface User {
   status: string;
 }
 
-let user: User[] = [];
+let addUser: User[] = [];
+
+
 
 const PopUpAddUser = () => {
     const [selectedStatus, setSelectedStatus] = useState("Select status");
@@ -46,13 +48,18 @@ const PopUpAddUser = () => {
             status: selectedStatus,
         };
         setUsers([...users, userData]);
-        user = [...users, userData];
+        addUser = [...users, userData];
         handleCancel();
-        console.log(user, userData);
-
+        console.log(addUser);
+        return addUser
+        
     };
+    console.log(addUser);
 
-    return (
+
+      
+      return (
+        
         
         <div className={styles.popUpWrapper}>
             <div className={styles.addUserTitle}>Add User</div>
@@ -94,5 +101,5 @@ const PopUpAddUser = () => {
     );
 };
 
-export default PopUpAddUser;
-export { user };
+export default  PopUpAddUser ;
+export { addUser };

@@ -1,6 +1,4 @@
 
-
-
 interface User {
   full_name: string;
   country: string;
@@ -58,5 +56,6 @@ let usersData: User[] = [
     status: "Active"
   }
 ];
+
 
 export default usersData;
