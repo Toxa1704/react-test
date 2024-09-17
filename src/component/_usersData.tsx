@@ -1,4 +1,3 @@
-
 interface User {
   full_name: string;
   country: string;
@@ -57,5 +56,12 @@ let usersData: User[] = [
   }
 ];
 
+interface UsersPageProps {
+  usersData: User[];
+}
+
+const pageProps: UsersPageProps = {
+  usersData,
+};
 
 export default usersData;

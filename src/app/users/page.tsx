@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import usersData from "@/component/_usersData";
 import { addUser } from "@/component/_popUpAddUser"
@@ -28,6 +28,7 @@ interface User {
 
 const parentElement = document.getElementById('parent');
 const childElement = document.getElementById('child');
+
 
 if (parentElement && childElement) {
   parentElement.removeChild(childElement);
@@ -159,3 +160,5 @@ const Users: React.FC = () => {
 };
 
 export default Users;
+export {usersData}
+

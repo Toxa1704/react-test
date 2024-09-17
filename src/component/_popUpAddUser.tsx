@@ -19,8 +19,8 @@ let addUser: User[] = [];
 
 
 const PopUpAddUser = () => {
-    const [selectedStatus, setSelectedStatus] = useState("Select status");
     const [selectedDepartment, setSelactedDepartment] = useState("Select department");
+    const [selectedStatus, setSelectedStatus] = useState("Select status");
     const [selectedCountry, setSelectedCountry] = useState("Select country");
     const [inputFullName, setInputFullName] = useState("");
     const [users, setUsers] = useState(usersData);
